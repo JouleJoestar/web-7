@@ -33,6 +33,14 @@ input[type="text"] {
     border-radius: 4px;
 }
 
+input[type="number"] {
+    width: 10%;
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 button {
     padding: 10px 15px;
     background-color: #28a745;
