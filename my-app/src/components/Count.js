@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Count = () => {
     const [count, setCount] = useState(0);
+    const [inputValue, setInputValue] = useState(''); 
 
     const fetchCount = async () => {
         try {
@@ -24,8 +25,9 @@ const Count = () => {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams({ count: 1 }),
+                body: new URLSearchParams({ count: inputValue }), 
             });
+            setInputValue(''); 
         } catch (error) {
             console.error('Fetch error:', error);
         }
@@ -35,6 +37,12 @@ const Count = () => {
         <div>
             <h2>Count Service</h2>
             <button onClick={fetchCount}>Счётчик</button>
+            <input 
+                type="number" 
+                value={inputValue} 
+                onChange={(e) => setInputValue(e.target.value)} 
+                placeholder="Введите число" 
+            />
             <button onClick={incrementCount}>Увеличить счётик</button>
             <p>Счётчик: {count}</p>
         </div>
